@@ -1,0 +1,200 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: calc(1vw + 0.6em);
+
+  --background: hsla(225, 1%, 99%, 1);
+  --primary-color: hsla(226, 63%, 52%, 1);
+  --primary-color-variant1: hsla(226, 63%, 76%, 1);
+  --primary-color-variant2: hsla(226, 63%, 90%, 1);
+  --primary-color-variant3: hsla(226, 59%, 26%, 1);
+  --white:  #FFFFFF;
+  --black: #000000;
+  --typography-active: hsla(226, 60%, 6%, 0.87);
+  --typography-inactive: hsla(226, 60%, 6%, 0.6);
+  --typography-disabled: hsla(226, 60%, 6%, 0.38);
+  --greyscale1: hsla(0, 0%, 93%, 1);
+  --greyscale2: hsla(0, 0%, 96%, 1);
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background);
+  margin: 0;
+}
+
+.bold-txt {
+  font-weight: 700;
+}
+
+.bolder-txt {
+  font-weight: 800;
+}
+
+.small-txt {
+    font-size: 0.875rem
+}
+
+.container {
+  width: 85vw;
+  margin: 0 auto;
+}
+
+header > img {
+  width: 80px;
+}
+
+
+
+/* ============== MAIN SECTION STYLING ============== */
+
+main {
+  margin-block-start: 2em;
+}
+
+.hero-txt {
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.hero-txt > .big {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.hero-txt > .small {
+  display: block;
+  margin-block-start: 8px;
+  color: var(--typography-active);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+
+/* ============== CARD STYLING ============ */
+
+.main-card {
+  box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
+  -webkit-box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
+  -moz-box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
+
+  background-color: var(--white);
+  margin: 0 auto;
+  margin-block-start: 56px;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+
+.main-card__header {
+  text-align: center;
+  color: var(--primary-color)
+}
+
+@media (min-width: 30em) {
+  .main-card__header {
+    font-size: 0.8rem;
+  }
+}
+
+.main-card__form {
+  margin-block-start: 40px;
+}
+
+.main-card__form > label {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (min-width: 30em) {
+  .main-card__form > label {
+    font-size: 18px;
+  }
+}
+
+
+.main-card__form > #phone {
+  display: block;
+  width: 100%;
+  margin-block-start: 8px;
+  border: none;
+  background-color: var(--greyscale1);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--typography-inactive);
+}
+
+@media (min-width: 30em) {
+  .main-card__form > #phone {
+    padding: 16px;
+    font-size: 24px;
+  }
+}
+
+.input-description {
+  margin-block-start: 10px;
+  color: var(--typography-inactive);
+}
+
+@media (min-width: 30em) {
+  .input-description {
+    font-size: 14px;
+  }
+}
+
+.main-card__form > button {
+  width: 100%;
+  margin-block-start: 24px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 14px;
+  border: none;
+  transition: all .2s linear;
+}
+
+@media (min-width: 30em) {
+  .main-card__form > button {
+    padding: 18px;
+  }
+}
+
+.main-card__form > button:hover {
+  background-color: var(--primary-color-variant3)
+}
+
+.main-card__form > button:active {
+  background-color: var(--primary-color-variant3)
+}
+
+
+/* ============ FOOTER STYLING =============== */
+
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+footer > p {
+  font-size: 0.875em;
+  color: var(--typography-inactive);
+  align-self: center;
+}
+
+
+footer > img {
+  width: 80px;
+  margin-left: 8px;
+}
+
+
