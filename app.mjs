@@ -5,34 +5,46 @@ function startApp() {
   
     // pls remove the below and make some magic in here!
 
-    const userInput = document.getElementById("phone").value;
+    /* const userInput = document.getElementById("phone").value; */
+
+  
+    const userInput = document.getElementById("phone");
     const firstFour = String(userInput).slice(0, 4);
-    const carrierName = document.getElementById("carrier-           name").innerHTML;
+    const carrierName = document.getElementById("carrier-name").innerHTML;
     const carrierImage = document.getElementById("carrier-img").src;
     const checkCarrierButton = document.getElementById("button")
   
 
-    const carrierPatterns = [
-      {
-        carrierName: "MTN",
-        patterns: [0803, 0703, 0903, 0806, 0706, 0813, 0810, 0814, 0816],
-      },
-      {
-        carrierName: "GLO",
-        patterns: [0805, 0705, 0905, 0807, 0815, 0811, 0905],
-      },
-      {
-        carrierName: "AIRTEL",
-        patterns: [0802, 0902, 0701, 0808, 0708, 0812],
-      },
-      {
-        carrierName: "9MOBILE",
-        patterns: [0809, 0909, 0817, 0818],
+    const carrierPatterns = {
+        "MTN": [803, 73, 93, 86, 76, 813, 81, 814, 816],
+       "GLO" :[85, 75, 95, 87, 815, 811, 95],
+        "AIRTEL" : [82, 92, 71, 88, 78, 812],
+        "9MOBILE" :[89, 99, 817, 818],
       }
-    ];
 
 
-    function getCarrierImage(name) {
+		
+		checkCarrierButton.addEventListener("click", function (e) {
+   e.preventDefault();
+
+    
+
+			for(let prefix of carrierPatterns.MTN){
+				
+				if (userInput.value === carrierPatterns.MTN){
+					console.log("MTN") 
+				}
+			}
+
+    
+
+  })
+
+
+ 
+
+
+    /* function getCarrierImage(name) {
       let imagePath = ""
       if (name === "MTN") {
         imagePath = "images/carrier-icons/MTN.png"
@@ -46,11 +58,17 @@ function startApp() {
 
       return imagePath;
       
-    }
+    } */
+
+ /*  checkCarrierButton.addEventListener("click", function (e) {
+   e.preventDefault();
+
+    console.log("working") 
+  }) */
 
   
 
-    function checkNumber() {
+  /*   function checkNumber() {
       for (let value of carrierPatterns) {
         value.patterns.forEach((pattern) => {
           if (firstFour === pattern.toString()) {
@@ -70,8 +88,8 @@ function startApp() {
     checkNumber();
 
 
-  };
-  
+  }; */
+}
   // ======= DO NOT EDIT ============== //
   export default startApp;
   // ======= EEND DO NOT EDIT ========= //
