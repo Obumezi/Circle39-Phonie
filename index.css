@@ -37,7 +37,23 @@ body {
 }
 
 .small-txt {
-  font-size: 0.875rem
+  font-size: 14px
+}
+
+.whiteBG {
+  background-color: var(--white);
+}
+
+.whiteBG .main-card__header {
+    color: var(--primary-color)
+}
+
+.blueBG .main-card__header {
+    color: var(--white)
+}
+
+.blueBG {
+  background-color: hsla(226, 63%, 52%, 1);;
 }
 
 .container {
@@ -77,25 +93,34 @@ main {
 }
 
 
-/* ============== CARD STYLING ============ */
+
+
+.cards-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-block-start: 56px;
+}
+
+
+/* ============== MAIN CARD STYLING ============ */
+
 
 .main-card {
   box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
   -webkit-box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
   -moz-box-shadow: 7px 7px 41px 0px rgba(10,9,33,0.1);
 
-  background-color: var(--white);
   margin: 0 auto;
-  margin-block-start: 56px;
   padding: 24px;
   border-radius: 8px;
-  max-width: 400px;
+  width: 100%;
 }
 
 
 .main-card__header {
   text-align: center;
-  color: var(--primary-color)
+  font-size: 0.8rem;
 }
 
 @media (min-width: 30em) {
@@ -104,37 +129,43 @@ main {
   }
 }
 
-.main-card__form {
+.main-card__inner {
   margin-block-start: 40px;
 }
 
-.main-card__form > label {
+.main-card__inner > label {
   font-size: 1rem;
   font-weight: 700;
 }
 
 @media (min-width: 30em) {
-  .main-card__form > label {
+  .main-card__inner > label {
     font-size: 18px;
   }
 }
 
-
-.main-card__form > #phone {
+.main-card__inner > #phone {
   display: block;
   width: 100%;
   margin-block-start: 8px;
   border: none;
+  font-size: 20px;
   background-color: var(--greyscale1);
   padding: 12px;
   border-radius: 8px;
-  color: var(--typography-inactive);
+  color: var(--typography-disabled);
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.main-card__inner > #phone:focus {
+  color: var(--primary-color);
+  outline: 4px solid var(--primary-color-variant1);
 }
 
 @media (min-width: 30em) {
-  .main-card__form > #phone {
+  .main-card__inner > #phone {
     padding: 16px;
-    font-size: 24px;
   }
 }
 
@@ -143,13 +174,7 @@ main {
   color: var(--typography-inactive);
 }
 
-@media (min-width: 30em) {
-  .input-description {
-    font-size: 14px;
-  }
-}
-
-.main-card__form > button {
+.main-card__inner > button {
   width: 100%;
   margin-block-start: 24px;
   background-color: var(--primary-color);
@@ -161,17 +186,74 @@ main {
 }
 
 @media (min-width: 30em) {
-  .main-card__form > button {
+  .main-card__inner > button {
     padding: 18px;
   }
 }
 
-.main-card__form > button:hover {
+.main-card__inner > button:hover {
+  background-color: var(--primary-color-variant3);
+  cursor: pointer;
+}
+
+.main-card__inner > button:active {
   background-color: var(--primary-color-variant3)
 }
 
-.main-card__form > button:active {
-  background-color: var(--primary-color-variant3)
+
+
+/* ============== RESULT CARD STYLING ============ */
+
+.result-card {
+  display: none;
+  flex-direction: column;
+  color: var(--white);
+  text-align: center;
+  position: absolute;
+  top: 0px
+}
+
+.phone-no {
+  font-size: 1.5rem;
+  display: block;
+  font-weight: 600;
+}
+
+.main-res {
+  font-size: 0.9rem;
+  display: block;
+  margin-block-start: 0.8em;
+}
+
+#carrier-name {
+  font-weight: 600;
+}
+
+.result__image {
+  display: inline-block;
+  text-align: center;
+  padding: 24px;
+  border-radius: 8px;
+  width: fit-content;
+  align-self: center;
+  margin: 32px;
+}
+
+.result__image > img {
+  width: 80px;
+}
+
+
+@media (max-width: 80em) {
+  #bg-decor {
+    display: none;
+  }
+}
+
+#bg-decor {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
 }
 
 
