@@ -8,44 +8,42 @@ function startApp() {
     /* const userInput = document.getElementById("phone").value; */
 
   
-    const userInput = document.getElementById("phone");
-    const firstFour = String(userInput).slice(0, 4);
-    const carrierName = document.getElementById("carrier-name").innerHTML;
+  
+    // GETTING ELEMENTS FROM THE DOM
+
+		const userInput = document.getElementById("phone");
+    let carrierName = document.getElementById("carrier-name").innerHTML;
     const carrierImage = document.getElementById("carrier-img").src;
     const checkCarrierButton = document.getElementById("button")
-  
-
-    const carrierPatterns = {
-        "MTN": [803, 73, 93, 86, 76, 813, 81, 814, 816],
-       "GLO" :[85, 75, 95, 87, 815, 811, 95],
-        "AIRTEL" : [82, 92, 71, 88, 78, 812],
-        "9MOBILE" :[89, 99, 817, 818],
+    
+    
+    const carrierPatterns = [
+      {
+        carrierName: "MTN",
+        patterns: ["0803", "0806", "0814", "0810", "0813", "0814", "0816", "0703", "0706", "0903", "0906"],
+      },
+      {
+        carrierName: "GLO",
+        patterns: ["0805", "0705", "0905", "0807", "0815", "0811", "0905"],
+      },
+      {
+        carrierName: "AIRTEL",
+        patterns: ["0802", "0902", "0701", "0808", "0708", "0812", "0901", "0907"],
+      },
+      {
+        carrierName: "9MOBILE",
+        patterns: ["0809", "0908", "0909", "0817"," 0818"],
       }
-
-
-		
-		checkCarrierButton.addEventListener("click", function (e) {
-   e.preventDefault();
+    ];
 
     
-
-			for(let prefix of carrierPatterns.MTN){
-				
-				if (userInput.value === carrierPatterns.MTN){
-					console.log("MTN") 
-				}
-			}
-
-    
-
-  })
-
-
- 
-
-
-    /* function getCarrierImage(name) {
+    // A FUNCTION THAT TAKES A "name" PARAMETER AND RETURNS A PATH BASED ON THAT NAME.
+    // This path will be passed to the img.src attribute.
+        
+    function getCarrierImage(name) {
+      
       let imagePath = ""
+      
       if (name === "MTN") {
         imagePath = "images/carrier-icons/MTN.png"
       } else if (name === "GLO") {
@@ -58,37 +56,100 @@ function startApp() {
 
       return imagePath;
       
-    } */
+    }
 
- /*  checkCarrierButton.addEventListener("click", function (e) {
-   e.preventDefault();
 
-    console.log("working") 
-  }) */
 
-  
 
-  /*   function checkNumber() {
+    // TO GET ALL THE VALUES FROM EACH PATTERN ARRAY.
+    // A loop in a loop.
+    // First loop goes over each object in the carrierPatterns array
+    // Second loop goes over each element in the patterns array of each object and logs out that pattern.
+
+    // function checkNumber() {
+    //   for (let value of carrierPatterns) {
+    //     value.patterns.forEach((pattern) => {
+    //       console.log(pattern)
+    //     })
+    //   }
+    // };
+
+    // checkCarrierButton.addEventListener("click", checkNumber());
+
+
+
+
+    // TO TEST THE LOOP WITH A LOCAL VARIABLE
+    // This test is to check that the right carrier name is returned if a match is found.
+
+    function checkNumber() {
+
+      let str = String(userInput.value);
+
+      // const localFirstFour = "0809";
+      
       for (let value of carrierPatterns) {
         value.patterns.forEach((pattern) => {
-          if (firstFour === pattern.toString()) {
-            carrierName = value.carrierName;
-            carrierImage = getCarrierImage(value.carrierName);
-
-            console.log(carrierName)
-          };
+          if (str === pattern) {
+            console.log(pattern)
+            console.log(value.carrierName)
+          }
         })
       }
-  
-      // document.getElementsByClassName("result-card").style.display = "flex";
-      
     };
 
-    // checkCarrierButton.onClick("checkNumber()")
-    checkNumber();
+		checkCarrierButton.addEventListener("click", (event) => {
+  	  event.preventDefault()
+      checkNumber()
+    })
 
 
-  }; */
+
+
+    // TESTING THE SLICE METHOD.
+    // the number has to be converted to a string before slicing it.
+
+    // function checkNumber() {
+
+    //   let number = 07084044448;
+    //   const localFirstFour = String(number).slice(0, 4);
+    
+    //   console.log(localFirstFour);
+    // };
+
+    // checkCarrierButton.addEventListener("click", checkNumber());
+
+
+
+    
+    // FIXED
+
+    // function checkNumber() {
+
+    //   let number = "07084044448";
+    //   const localFirstFour = number.slice(0, 4);
+      
+    //   console.log(localFirstFour);
+    // };
+
+    // checkCarrierButton.addEventListener("click", checkNumber());
+
+
+
+
+    // FINAL DESTINATION
+    // Compare user input with patterns, if there's a match change the carrierName and the carrierImage in the DOM using the results from the match.
+
+    // function checkNumber() {
+    //   for (let value of carrierPatterns) {
+    //     value.patterns.forEach((pattern) => {
+    //       if (firstFour === pattern) {
+    //         carrierName = value.carrierName;
+    //         carrierImage = getCarrierImage(value.carrierName);
+    //       };
+    //     })
+    //   }
+    // };
 }
   // ======= DO NOT EDIT ============== //
   export default startApp;
