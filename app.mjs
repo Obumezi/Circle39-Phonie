@@ -91,7 +91,7 @@ function startApp() {
       for (let value of carrierPatterns) {
         value.patterns.forEach((pattern) => {
           if (str === pattern) {
-            console.log(pattern)
+            //console.log(pattern)
             console.log(value.carrierName)
           }
         })
