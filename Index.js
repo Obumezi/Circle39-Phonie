@@ -1,9 +1,4 @@
-"use strict"
 
-    /* const userInput = document.getElementById("phone").value; */
-
-  
-  
     // GETTING ELEMENTS FROM THE DOM
 
 		const userInput = document.getElementById("phone");
@@ -86,7 +81,7 @@
       for (let value of carrierPatterns) {
         value.patterns.forEach((pattern) => {
           if (str === pattern) {
-            //console.log(pattern)
+            console.log(pattern)
             console.log(value.carrierName)
           }
         })
@@ -145,7 +140,3 @@
     //     })
     //   }
     // };
-}
-  // ======= DO NOT EDIT ============== //
-  export default startApp;
-  // ======= EEND DO NOT EDIT ========= //
