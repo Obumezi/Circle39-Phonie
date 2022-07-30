@@ -14,8 +14,9 @@ function startApp() {
 		const userInput = document.getElementById("phone");
     let carrierName = document.getElementById("carrier-name").innerHTML;
     const carrierImage = document.getElementById("carrier-img").src;
-    const checkCarrierButton = document.getElementById("button")
-    
+    const checkCarrierButton = document.getElementById("button");
+	let inputMessage = document.getElementById("input-message")
+
     
     const carrierPatterns = [
       {
@@ -100,7 +101,16 @@ function startApp() {
 
 		checkCarrierButton.addEventListener("click", (event) => {
   	  event.preventDefault()
+
+			//validityCheck
+			let validNumber
+	if (userInput.value.includes(+234) && userInput.value.length === 14){
+		inputMessage.innerText = "This is valid Number"
+		console.log(validNumber = true)
+		
+	}
       checkNumber()
+			
     })
 
 
