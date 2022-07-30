@@ -32,6 +32,9 @@ function startApp() {
     },
   ];
 
+  for (prop in carrierPatterns) {
+    console.log(prop)
+  }
 
   function checkNumber() {
     for (let value of carrierPatterns) {
