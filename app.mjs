@@ -1,5 +1,5 @@
 "use strict"
-
+function startApp(){
     /* const userInput = document.getElementById("phone").value; */
 
   
