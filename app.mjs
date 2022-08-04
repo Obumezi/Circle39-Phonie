@@ -2,8 +2,6 @@
 function startApp(){
     /* const userInput = document.getElementById("phone").value; */
 
-  
-  
     // GETTING ELEMENTS FROM THE DOM
 
 		const userInput = document.getElementById("phone");
@@ -12,6 +10,10 @@ function startApp(){
     const checkCarrierButton = document.getElementById("button");
 	let inputMessage = document.getElementById("input-message")
 
+
+	const patternCheck= /((\+234)|0)?[ -]?(?<network>\d{4})[ -]?(\d{3})[ -]?(\d{4})/;
+
+	
     
     const carrierPatterns = [
       {
@@ -53,31 +55,6 @@ function startApp(){
       return imagePath;
       
     }
-
-
-
-
-    // TO GET ALL THE VALUES FROM EACH PATTERN ARRAY.
-    // A loop in a loop.
-    // First loop goes over each object in the carrierPatterns array
-    // Second loop goes over each element in the patterns array of each object and logs out that pattern.
-
-    // function checkNumber() {
-    //   for (let value of carrierPatterns) {
-    //     value.patterns.forEach((pattern) => {
-    //       console.log(pattern)
-    //     })
-    //   }
-    // };
-
-    // checkCarrierButton.addEventListener("click", checkNumber());
-
-
-
-
-    // TO TEST THE LOOP WITH A LOCAL VARIABLE
-    // This test is to check that the right carrier name is returned if a match is found.
-
     function checkNumber() {
 
       let str = String(userInput.value);
@@ -97,64 +74,18 @@ function startApp(){
 		checkCarrierButton.addEventListener("click", (event) => {
   	  event.preventDefault()
 
-			//validityCheck
+			let phoneString = userInput.value
+
+					//validityCheck
 			let validNumber
-	if (userInput.value.includes(+234) && userInput.value.length === 14){
-		inputMessage.innerText = "This is valid Number"
+	if (phoneString.includes(+234) && phoneString.length === 14){
+	
 		console.log(validNumber = true)
 		
 	}
-      checkNumber()
-			
+     checkNumber()		
     })
-
-
-
-
-    // TESTING THE SLICE METHOD.
-    // the number has to be converted to a string before slicing it.
-
-    // function checkNumber() {
-
-    //   let number = 07084044448;
-    //   const localFirstFour = String(number).slice(0, 4);
-    
-    //   console.log(localFirstFour);
-    // };
-
-    // checkCarrierButton.addEventListener("click", checkNumber());
-
-
-
-    
-    // FIXED
-
-    // function checkNumber() {
-
-    //   let number = "07084044448";
-    //   const localFirstFour = number.slice(0, 4);
-      
-    //   console.log(localFirstFour);
-    // };
-
-    // checkCarrierButton.addEventListener("click", checkNumber());
-
-
-
-
-    // FINAL DESTINATION
-    // Compare user input with patterns, if there's a match change the carrierName and the carrierImage in the DOM using the results from the match.
-
-    // function checkNumber() {
-    //   for (let value of carrierPatterns) {
-    //     value.patterns.forEach((pattern) => {
-    //       if (firstFour === pattern) {
-    //         carrierName = value.carrierName;
-    //         carrierImage = getCarrierImage(value.carrierName);
-    //       };
-    //     })
-    //   }
-    // };
+  
 }
   // ======= DO NOT EDIT ============== //
   export default startApp;
