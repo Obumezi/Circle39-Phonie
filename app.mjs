@@ -96,6 +96,9 @@ function startApp() {
     if (phoneString = "" || !phoneString.match(patternCheck) || !validNumber){
       inputMessage.innerText = "Invalid Phone Number"
       inputMessage.style.color= "red"
+    } else {
+      inputMessage.innerText = "Valid Number"
+      inputMessage.style.color ="green"
     }
 
 
