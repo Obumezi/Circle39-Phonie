@@ -77,13 +77,29 @@ function startApp() {
     let phoneString = userInput.value
 
     //validityCheck
-    let validNumber
+    let validNumber = false
     if (phoneString.includes(+234) && phoneString.length === 14) {
-
-      console.log(validNumber = true)
-
+      validNumber = true
     }
-    checkNumber()
+
+    if (phoneString.includes("+2340") && phoneString.length === 15) {
+      validNumber = true
+    }
+
+    if (phoneString.length === 11) {
+      validNumber = true
+    }
+
+
+    //Detect incorrect input
+
+    if (phoneString = "" || !phoneString.match(patternCheck) || !validNumber){
+      inputMessage.innerText = "Invalid Phone Number"
+      inputMessage.style.color= "red"
+    }
+
+
+    //checkNumber()
   })
 
 }
