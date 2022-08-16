@@ -204,8 +204,11 @@ main {
 
 /* ============== RESULT CARD STYLING ============ */
 
-.result-card {
+#result-card {
   display: none;
+}
+
+.result-card {
   flex-direction: column;
   color: var(--white);
   text-align: center;
@@ -213,7 +216,19 @@ main {
   top: 0px
 }
 
-.phone-no {
+#arrow-back {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  padding: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#phone-no {
   font-size: 1.5rem;
   display: block;
   font-weight: 600;

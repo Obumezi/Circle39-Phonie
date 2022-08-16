@@ -5,14 +5,17 @@ function startApp() {
   // GETTING ELEMENTS FROM THE DOM
 
   const userInput = document.getElementById("phone");
-  let carrierName = document.getElementById("carrier-name").innerHTML;
-  const carrierImage = document.getElementById("carrier-img").src;
+  let carrierImage = document.getElementById("carrier-img");
   const checkCarrierButton = document.getElementById("button");
-  let inputMessage = document.getElementById("input-message")
+  let inputMessage = document.getElementById("input-message");
+  let resultCard = document.getElementById("result-card");
+  let userPhone = document.getElementById("phone-no");
+  let carrierName = document.getElementById("carrier-name");
+  const arrowBack = document.getElementById("arrow-back");
+
 
 
   const patternCheck = /((\+234)|0)?[ -]?(?<network>\d{4})[ -]?(\d{3})[ -]?(\d{4})/;
-
 
 
   const carrierPatterns = [
@@ -30,7 +33,7 @@ function startApp() {
     },
     {
       carrierName: "9MOBILE",
-      patterns: ["0809", "0908", "0909", "0817", " 0818"],
+      patterns: ["0809", "0908", "0909", "0817", "0818"],
     }
   ];
 
@@ -55,54 +58,72 @@ function startApp() {
     return imagePath;
 
   }
+
+
+  // THIS FUNCTION HIDES THE RESULT CARD.
+  
+  arrowBack.onclick = () => {
+    resultCard.style.display = "none";
+  }
+
+  
   function checkNumber() {
 
     let str = String(userInput.value);
-
-    // const localFirstFour = "0809";
-
+    console.log(str)                      // First log || User input
+    
     for (let value of carrierPatterns) {
       value.patterns.forEach((pattern) => {
-        if (str === pattern) {
-          //console.log(pattern)
-          console.log(value.carrierName)
+        
+        let regEx = null;
+        
+        if (str.length === 14 ) {
+            regEx = new RegExp(`\\b234${pattern.slice(1)}`);
+        } else if (str.length === 15) {
+            regEx = new RegExp(`\\b234${pattern}`);
+        } else {
+            regEx = new RegExp(`\\b${pattern}`);
+        }
+
+        if (regEx.test(str)) {
+          console.log(value.carrierName)    // Second Log  || Carrier name
+          
+          userPhone.innerText = str;
+          carrierName.innerText = value.carrierName;
+           
+          setTimeout(() => (resultCard.style.display = "flex"), 1000);
+          
+          carrierImage.src = getCarrierImage(value.carrierName);
+          console.log(carrierImage.src)    // Third log  || Image path url
         }
       })
     }
   };
+  
 
   checkCarrierButton.addEventListener("click", (event) => {
     event.preventDefault()
 
     let phoneString = userInput.value
-
-    //validityCheck
     let validNumber = false
-    if (phoneString.includes(+234) && phoneString.length === 14) {
-      validNumber = true
-    }
-
-    if (phoneString.includes("+2340") && phoneString.length === 15) {
-      validNumber = true
-    }
-
-    if (phoneString.length === 11) {
-      validNumber = true
+    
+    //validityCheck
+    if ((phoneString.includes(+234) && phoneString.length === 14) || 
+        (phoneString.includes("+2340") && phoneString.length === 15) || 
+        (phoneString.length === 11)) {
+          validNumber = true
     }
 
 
     //Detect incorrect input
-
     if (phoneString = "" || !phoneString.match(patternCheck) || !validNumber){
       inputMessage.innerText = "Invalid Phone Number"
       inputMessage.style.color= "red"
     } else {
       inputMessage.innerText = "Valid Number"
       inputMessage.style.color ="green"
+      checkNumber();
     }
-
-
-    //checkNumber()
   })
 
 }

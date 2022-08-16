@@ -88,10 +88,10 @@
       }
     };
 
-		checkCarrierButton.addEventListener("click", (event) => {
-  	  event.preventDefault()
-      checkNumber()
-    })
+		// checkCarrierButton.addEventListener("click", (event) => {
+  // 	  event.preventDefault()
+  //     checkNumber()
+  //   })
 
 
 

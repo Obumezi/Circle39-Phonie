@@ -9,6 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index.css" type="text/css">
   <link rel="stylesheet" href="index.css">
+
+  <script src="https://kit.fontawesome.com/53f4ea485d.js" crossorigin="anonymous"></script>
+
   <!-- Font import  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,12 +43,13 @@
           </form>
         </div>
 
-        <div class="main-card result-card blueBG">
+        <div class="main-card result-card blueBG" id="result-card">
+          <button id="arrow-back"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
           <h3 class="main-card__header">Result</h3>
           <div class="main-card__inner">
             <div class="result__txt">
-              <span class="phone-no">+2347084044448</span>
-              <span class="main-res">Is a <span id="carrier-name">MTN</span> number</span>
+              <span id="phone-no"></span>
+              <span class="main-res">Is a <span id="carrier-name"></span> number</span>
             </div>
             <div class="result__image whiteBG">
               <img src="images/carrier-icons/MTN.png" id="carrier-img">
@@ -67,8 +71,8 @@
   <!-- JAVASCRIPT SECTION -->
   
   <script>
+
     
-  
   </script>
   
 
