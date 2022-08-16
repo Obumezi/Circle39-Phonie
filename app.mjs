@@ -46,7 +46,7 @@ function startApp() {
     let imagePath = ""
 
     if (name === "MTN") {
-      imagePath = "images/carrier-icons/new-mtn-logo.jpg"
+      imagePath = "images/carrier-icons/MTN-Logo.jpg"
     } else if (name === "GLO") {
       imagePath = "images/carrier-icons/Globacom.png"
     } else if (name === "AIRTEL") {
