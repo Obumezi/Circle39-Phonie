@@ -21,7 +21,7 @@ function startApp() {
   const carrierPatterns = [
     {
       carrierName: "MTN",
-      patterns: ["0803", "0806", "0814", "0810", "0813", "0814", "0816", "0703", "0706", "0903", "0906"],
+      patterns: ["0803", "0806", "0814", "0810", "0813", "0814", "0816", "0703", "0704", "0706", "0903", "0906"],
     },
     {
       carrierName: "GLO",
@@ -29,7 +29,7 @@ function startApp() {
     },
     {
       carrierName: "AIRTEL",
-      patterns: ["0802", "0902", "0701", "0808", "0708", "0812", "0901", "0907"],
+      patterns: ["0802", "0902", "0701", "0808", "0708", "0812", "0901", "0907", "0904"],
     },
     {
       carrierName: "9MOBILE",
@@ -46,7 +46,7 @@ function startApp() {
     let imagePath = ""
 
     if (name === "MTN") {
-      imagePath = "images/carrier-icons/MTN-Logo.jpg"
+      imagePath = "images/carrier-icons/MTN.png"
     } else if (name === "GLO") {
       imagePath = "images/carrier-icons/Globacom.png"
     } else if (name === "AIRTEL") {
